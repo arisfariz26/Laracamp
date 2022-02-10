@@ -15,16 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('login', function () {
-    return view('login');
-});
+})->name('welcome');
 
 Route::get('checkout', function () {
     return view('checkout');
-});
+})->name('checkout');
 
 Route::get('succes-checkout', function () {
     return view('succes_checkout');
-});
+})->name('succes-checkout');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';
